@@ -2,17 +2,19 @@
 {
     private static void Main(string[] args)
     {
-        Console.Write("Введите m");
-        int m = int.Parse(Console.ReadLine());
-        Console.Write("Введите n");
-        int k = int.Parse(Console.ReadLine());
-
-        Console.WriteLine(Sum(m)+ Sum(k));
+        Console.Write("Введите n ");
+        int n = int.Parse(Console.ReadLine());
+        Console.Write("B: ");
+        Console.WriteLine(B(n));
     }
 
-    public static int Sum(int n)
+    public static double B(int n)
     {
-        if (n == 1) return 1;
-        else return n + Sum(n-1);
+        if (n == 1) return 5;
+        else
+        {
+            double previosB = B(n-1);
+            return previosB / ((n - 1) * (n - 1) + n); 
+        }
     }
 }

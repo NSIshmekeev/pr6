@@ -2,34 +2,33 @@
 
 class Program
 {
-    static void PrintDigits(int n)
+    static void PrintSequence(int m)
     {
-        if (n < 10)
+        if (m == 0)
         {
-            Console.Write(n);
+            return;
         }
-        else
-        {
-            PrintDigits(n / 10);
-            Console.Write(n % 10);
-        }
+        Console.Write(m + " ");
+        PrintSequence(m - 1);
     }
 
-    static void ProcessRange(int A, int B)
+    static void PrintAll(int m)
     {
-        for (int i = A; i <= B; i++)
+        if (m == 0)
         {
-            PrintDigits(i);
-            Console.WriteLine(); 
+            return;
         }
+        PrintAll(m-1);
+        Console.WriteLine();
+        PrintSequence(m);
     }
+
+
 
     static void Main(string[] args)
     {
-        Console.Write("Введите A: ");
-        int A = int.Parse(Console.ReadLine());
-        Console.Write("Введите B: ");
-        int B = int.Parse(Console.ReadLine());
-        ProcessRange(A, B);
+        Console.Write("Введите значение n: ");
+        int n = int.Parse(Console.ReadLine());
+        PrintAll(n);
     }
 }
